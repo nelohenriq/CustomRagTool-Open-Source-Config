@@ -1,0 +1,8 @@
+crewai
+crewai_tools
+python-decouple
+transformers
+sentence-transformers
+torch
+langchain-community
+langchain-groq
