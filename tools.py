@@ -15,6 +15,7 @@ from typing import Dict, Any
 import os
 
 os.environ["HUGGINGFACE_ACCESS_TOKEN"] = config("HUGGINGFACE_ACCESS_TOKEN")
+os.environ["GROQ_API_KEY"] = config("GROQ_API_KEY")
 
 """ model = HuggingFaceEndpoint(
     repo_id="mistralai/Mistral-7B-Instruct-v0.2",
@@ -30,7 +31,7 @@ llm = ChatHuggingFace(llm=model) """
 
 llm = ChatGroq(
     temperature=0,
-    groq_api_key="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",
+    # groq_api_key="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",
     model_name="llama3-8b-8192",
     max_tokens=8192,
 )
@@ -65,7 +66,8 @@ class CustomRagTool(EmbedchainAdapter):
         Concrete implementation of the _run method.
         This will fetch and return relevant content from the knowledge base.
         """
-        self._before_run(query, **kwargs)  # Perform any pre-processing if needed
+        self._before_run(
+            query, **kwargs)  # Perform any pre-processing if needed
 
         # Fetch relevant content using the adapter
         relevant_content = self.adapter.query(query)
