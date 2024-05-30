@@ -23,7 +23,6 @@ os.environ["GROQ_API_KEY"] = config("GROQ_API_KEY")
     max_new_tokens=8192,
     temperature=0.1,
     top_k=5,
-    huggingfacehub_api_token="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",
     repetition_penalty=1.03,
 )
 
@@ -31,7 +30,6 @@ llm = ChatHuggingFace(llm=model) """
 
 llm = ChatGroq(
     temperature=0,
-    # groq_api_key="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",
     model_name="llama3-8b-8192",
     max_tokens=8192,
 )
